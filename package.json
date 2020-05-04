@@ -1,0 +1,34 @@
+{
+  "name": "burger-maker",
+  "version": "1.0.0",
+  "description": "An application to create and eat burgers",
+  "main": "server.js",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^4.0.4",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timothymickiewicz/Burger-Maker.git"
+  },
+  "keywords": [
+    "burger",
+    "maker",
+    "Timothy",
+    "Mickiewicz"
+  ],
+  "author": "Timothy Mickiewicz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/timothymickiewicz/Burger-Maker/issues"
+  },
+  "homepage": "https://github.com/timothymickiewicz/Burger-Maker#readme"
+}

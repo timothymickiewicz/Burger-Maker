@@ -1,51 +1,39 @@
 <h1>Burger-Maker</h1>
 
-<ul>
+{{!-- List for created burgers --}}
+<ul id="burgers">
   {{#each burgers}}
     <li>
       <p>
         {{this.burger}}
-        <button data-burgerid="{{this.id}}" class="delburger">Eat It!</button>
+        <button data-burgerid="{{this.id}}" class="burger">Eat It!</button>
       </p>
     </li>
   {{/each}}
 </ul>
 
-<h2>Make a Burger</h2>
-<form id="addburger" class="button-size">
-	<textarea type="text" name="burger"></textarea>
-	<button type="submit">Make Burger!</button>
-</form>
+{{!-- List for eaten burgers --}}
+<ul id="eaten">
+  {{#each eaten}}
+    <li>
+      <p>
+        {{this.eatenBurger}}
+      </p>
+    </li>
+  {{/each}}
+</ul>
 
-<script type="text/javascript">
-{{!-- Deletes a burger --}}
-  $(".delburger").on("click", function(event) {
-    var id = $(this).data("burgerid");
-    $.ajax("/api/burgers/" + id, {
-      type: "DELETE"
-    }).then(
-      function() {
-        console.log("deleted id ", id);
-        // Reload the page to update the list
-        location.reload();
-      }
-    );
-  });
-{{!-- Adds a burger --}}
-  $("#addburger").on("submit", function(event) {
-    event.preventDefault();
-    var newBurger = {
-        burger: $("#addburger [name=burger]").val().trim()
-    };
-    $.ajax("/api/burgers", {
-      type: "POST",
-      data: newBurger
-    }).then(
-      function() {
-        console.log("added new burger");
-        // Reload the page to update the list
-        location.reload();
-      }
-    );
-  });
-</script>
+{{!-- <h2>Eat a Burger</h2>
+<form id="eatburger" class="button-size">
+	<textarea type="text" name="eatburger"></textarea>
+	<button type="submit">Eat It!</button>
+</form> --}}
+
+<h2>Make a Burger</h2>
+<form class="create-form">
+  <div class="form-group">
+    <label for="burger">Burger:</label>
+    <input type="text" id="burger" name="name">
+  </div>
+  <button id="make" type="submit">Make Burger</button>
+</form>
