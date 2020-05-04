@@ -9,7 +9,21 @@ router.get("/", function(req, res) {
     var burgersObject = {
       burgers: data
     };
-    res.render("index", burgersObject);
+    let notEaten = [];
+    notEaten.noteatenburgers = [];
+    let eaten = [];
+    eaten.eatenburgers = [];
+    for (let i=0; i<burgersObject.burgers.length; i++) {
+      if (burgersObject.burgers[i].isEaten === 1) {
+        
+        eaten.eatenburgers.push(burgersObject.burgers[i])
+      }
+      else if (burgersObject.burgers[i].isEaten === 0) {
+        notEaten.noteatenburgers.push(burgersObject.burgers[i])
+      }
+    }
+    console.log({ data: { eaten, notEaten} });
+    res.render("index", { data: { eaten, notEaten} });
   });
 });
 
@@ -30,7 +44,7 @@ router.put("/api/burgers/:id", function(req, res) {
 
   console.log("condition", condition);
 
-  burger.update({
+  burger.updateOne({
     isEaten: req.body.isEaten
   }, condition, function(result) {
     if (result.changedRows == 0) {

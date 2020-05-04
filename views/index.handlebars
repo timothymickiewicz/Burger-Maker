@@ -2,22 +2,23 @@
 
 {{!-- List for created burgers --}}
 <ul id="burgers">
-  {{#each burgers}}
+  {{#each data.notEaten.noteatenburgers}}
     <li>
       <p>
         {{this.burger}}
-        <button data-burgerid="{{this.id}}" class="burger">Eat It!</button>
+        <button data-burgerid="{{this.id}}" class="eatburger" class="burger">Eat It!</button>
       </p>
     </li>
   {{/each}}
 </ul>
 
 {{!-- List for eaten burgers --}}
+<h1>Eaten Burgers</h1>
 <ul id="eaten">
-  {{#each eaten}}
+  {{#each data.eaten.eatenburgers}}
     <li>
       <p>
-        {{this.eatenBurger}}
+        {{this.burger}}
       </p>
     </li>
   {{/each}}
