@@ -24,12 +24,6 @@
   {{/each}}
 </ul>
 
-{{!-- <h2>Eat a Burger</h2>
-<form id="eatburger" class="button-size">
-	<textarea type="text" name="eatburger"></textarea>
-	<button type="submit">Eat It!</button>
-</form> --}}
-
 <h2>Make a Burger</h2>
 <form class="create-form">
   <div class="form-group">
@@ -37,4 +31,7 @@
     <input type="text" id="burger" name="name">
   </div>
   <button id="make" type="submit">Make Burger</button>
+  <div class="progress">
+  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+</div>
 </form>
