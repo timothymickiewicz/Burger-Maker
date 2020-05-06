@@ -4,6 +4,7 @@
   "description": "An application to create and eat burgers",
   "main": "server.js",
   "dependencies": {
+    "connect-timeout": "^1.9.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-handlebars": "^4.0.4",
