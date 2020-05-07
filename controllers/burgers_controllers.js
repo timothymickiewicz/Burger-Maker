@@ -1,9 +1,8 @@
-// import express and burger.js
-// create router and export router
 var express = require("express");
 var router = express.Router();
 var burger = require("../models/burger.js");
-// Create all our routes and set up logic within those routes where required.
+
+// Displaying all info into the correct fields with two arrays (eaten, not eaten) sent to the index.html handlebar
 router.get("/", function(req, res) {
   burger.selectAll(function(data) {
     var burgersObject = {
@@ -15,20 +14,17 @@ router.get("/", function(req, res) {
     eaten.eatenburgers = [];
     for (let i=0; i<burgersObject.burgers.length; i++) {
       if (burgersObject.burgers[i].isEaten === 1) {
-        
         eaten.eatenburgers.push(burgersObject.burgers[i])
       }
       else if (burgersObject.burgers[i].isEaten === 0) {
         notEaten.noteatenburgers.push(burgersObject.burgers[i])
       }
     }
-    console.log({ data: { eaten, notEaten} });
-    res.render("index", { data: { eaten, notEaten} });
+    res.render("index", {data: {eaten, notEaten}});
   });
 });
 
 router.post("/api/burgers", function(req, res) {
-  console.log(res);
   burger.insertOne([
     "burger, isEaten"
   ], [
@@ -41,9 +37,6 @@ router.post("/api/burgers", function(req, res) {
 
 router.put("/api/burgers/:id", function(req, res) {
   var condition = "id = " + req.params.id;
-
-  console.log("condition", condition);
-
   burger.updateOne({
     isEaten: req.body.isEaten
   }, condition, function(result) {

@@ -2,7 +2,7 @@
 require('dotenv').config();
 var mysql = require("mysql");
 
-// A connection for local and jawsdb
+// A connection for localhost and jawsdb
 var connection;
 if (process.env.JAWSDB_URL) {
     connection = mysql.createConnection(process.env.JAWSDB_URL);
@@ -21,8 +21,8 @@ connection.connect(function(err) {
     console.error("error connecting: " + err.stack);
     return;
   }
-
   console.log("connected as id " + connection.threadId);
 });
   
+// Exports connection to orm.js
 module.exports = connection;

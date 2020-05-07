@@ -19,11 +19,11 @@ $(function() {
       );
     });
 
-    // Click event for making a burger, with progress bar animation and timeout features
+    // Click event for making a burger, with progress bar animation and timeout features to imitate burger creation process
     $("#make").click(function(event) {
     event.preventDefault();
     $(".progress-bar").css({"width":"100%","transition":"3s"});
-    // having this code run after the 3 second transition on the progress bar
+    // having this code run 0.25 seconds after the 3 second transition on the progress bar
     setTimeout(
         `var burgerObject = {
             name: $("#burger").val().trim(),
@@ -39,4 +39,3 @@ $(function() {
     );`, 3250);
     });
 });
-  

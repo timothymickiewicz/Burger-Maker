@@ -1,18 +1,16 @@
 var connection = require("./connection.js");
 
+// Makes a dynamic number of question marks for the insert function for each value field to be filled
 function printQuestionMarks(num) {
   var arr = [];
-
   for (var i = 0; i < num; i++) {
     arr.push("?");
   }
-
   return arr.toString();
 }
 
 function objToSql(ob) {
   var arr = [];
-
   // loop through the keys and push the key/value as a string int arr
   for (var key in ob) {
     var value = ob[key];
@@ -24,7 +22,6 @@ function objToSql(ob) {
       arr.push(key + "=" + value);
     }
   }
-
   // translate array of strings to a single comma-separated string
   return arr.toString();
 }
@@ -45,7 +42,6 @@ var orm = {
     queryString += "VALUES (";
     queryString += printQuestionMarks(vals.length);
     queryString += ") ";
-    console.log(queryString);
     connection.query(queryString, vals, function(err, result) {
       if (err) {
         throw err;
@@ -59,7 +55,6 @@ var orm = {
     queryString += objToSql(cols);
     queryString += " WHERE ";
     queryString += condition;
-    console.log(queryString);
     connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
@@ -69,4 +64,5 @@ var orm = {
   }
 };
 
+// Exports orm to burger.js
 module.exports = orm;
