@@ -28,6 +28,9 @@ A burger making application that utilizes Node.js, Express, MySQL, Express Handl
 ## Use
 Visit the live-link at the top of this file to use the application via Heroku.
  
+## Technologies
+HTML5, CSS3, JavaScript, Node.js, Handlebars, MySQL, JawsDB, Express
+
 ## Licensing
 ![Badge](https://img.shields.io/static/v1?label=License&message=MIT&color=<COLOR>?style=plastic)
  
